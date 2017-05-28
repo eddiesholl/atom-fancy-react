@@ -1,0 +1,20 @@
+{
+  "name": "fancy-react",
+  "main": "./lib/fancy-react",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "keywords": [],
+  "activationCommands": {
+    "atom-workspace": "fancy-react:generate"
+  },
+  "repository": "https://github.com/atom/fancy-react",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "acorn": "^4.0.13",
+    "acorn-jsx": "^4.0.1",
+    "babylon": "^6.17.1"
+  }
+}

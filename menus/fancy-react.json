@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle fancy-react",
+        "command": "fancy-react:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "fancy-react",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "fancy-react:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
