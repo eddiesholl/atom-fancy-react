@@ -17,5 +17,8 @@
     "acorn-jsx": "^4.0.1",
     "babylon": "^6.17.1",
     "mkdirp": "^0.5.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-jasmine": "^2.2.0"
   }
 }
