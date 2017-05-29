@@ -15,8 +15,11 @@
   "dependencies": {
     "acorn": "^4.0.13",
     "acorn-jsx": "^4.0.1",
+    "astring": "^1.0.2",
     "babylon": "^6.17.1",
-    "mkdirp": "^0.5.1"
+    "estree-builder": "^1.6.0",
+    "mkdirp": "^0.5.1",
+    "ramda": "^0.24.0"
   },
   "devDependencies": {
     "eslint-plugin-jasmine": "^2.2.0"
