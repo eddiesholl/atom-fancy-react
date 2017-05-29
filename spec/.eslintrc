@@ -1,0 +1,11 @@
+{
+  "plugins": ["jasmine"],
+  "env": {
+    "jasmine": true,
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "waitsForPromise": false
+  }
+}
