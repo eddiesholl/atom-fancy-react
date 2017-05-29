@@ -1,5 +1,5 @@
 {
-  "name": "fancy-react",
+  "name": "atom-fancy-react",
   "main": "./lib/fancy-react",
   "version": "0.0.0",
   "description": "A short description of your package",
