@@ -36,7 +36,7 @@ describe('test-content', () => {
       expect(genJs(result)).toEqual(
 `function renderComponent(props) {
   props = props || {}
-  return render(<Foo ...props />);
+  return render(<Foo {...props} />);
 }`)
     })
   })
