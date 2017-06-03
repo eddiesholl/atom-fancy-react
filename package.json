@@ -4,6 +4,10 @@
   "version": "0.0.0",
   "description": "A short description of your package",
   "keywords": [],
+  "scripts": {
+    "test": "jasmine",
+    "test:watch": "nodemon --watch ./node_modules/jasmine/bin/jasmine.js"
+  },
   "activationCommands": {
     "atom-workspace": "fancy-react:generate"
   },
@@ -22,6 +26,7 @@
     "ramda": "^0.24.0"
   },
   "devDependencies": {
-    "eslint-plugin-jasmine": "^2.2.0"
+    "eslint-plugin-jasmine": "^2.2.0",
+    "jasmine": "^2.6.0"
   }
 }
