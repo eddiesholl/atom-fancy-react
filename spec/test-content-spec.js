@@ -3,7 +3,15 @@
 
 import e from 'estree-builder'
 
-import { generate, itBlock, genJs, renderFunc } from '../lib/test-content'
+import {
+  generate,
+  itBlock,
+  vr,
+  genJs,
+  renderFunc,
+  buildBeforeEach,
+  propTypeToMock
+} from '../lib/test-content'
 
 
 const sampleModulePath = '/a/b'
@@ -52,9 +60,40 @@ describe('test-content', () => {
       cmp(genJs(result), expected)
     })
   })
+
+  describe('buildBeforeEach', () => {
+    it('works', () => {
+      const result = buildBeforeEach([])
+      const expected =
+`beforeEach(function () {})`
+      cmp(genJs(result), expected)
+    })
+
+    it('assigns to props', () => {
+      const result = buildBeforeEach([{
+        propName: 'f',
+        mockName: 'fMock',
+        mockVar: vr('fMock'),
+        mockVal: propTypeToMock['func']()
+      },
+      {
+        propName: 's',
+        mockName: 'sMock',
+        mockVar: vr('sMock'),
+        mockVal: e.string('sMock')
+      }])
+      const expected =
+`beforeEach(function () {
+  fMock = jest.fn()
+  sMock = "sMock"
+})`
+      cmp(genJs(result), expected)
+    })
+  })
 })
 
 const cmp = (ac, exp) => {
+  expect(ac).toEqual(exp)
   for (var i = 0; i < ac.length; i++) {
     expect(ac[i]).toEqual(exp[i])
   }

@@ -2,7 +2,7 @@
 
 import e from 'estree-builder'
 
-import { searchByType } from '../lib/node-ops'
+import { searchByType, searchForPropTypes } from '../lib/node-ops'
 
 describe('node-ops', () => {
   describe('searchByType', () => {
@@ -11,6 +11,7 @@ describe('node-ops', () => {
       type: 'root',
       id: idChild
     }
+
     it('finds a single node', () => {
       const result = searchByType(rootNode, 'root')
       expect(result).toEqual(rootNode)
@@ -24,6 +25,34 @@ describe('node-ops', () => {
     it('can find a child under id', () => {
       const result = searchByType(rootNode, 'idChild')
       expect(result).toEqual(idChild)
+    })
+  })
+
+  describe('searchForPropTypes', () => {
+    const propTypeProperties = [{
+      type: 'Property'
+    }]
+    const propTypeAssignment = {
+      type: 'AssignmentExpression',
+      left: {
+        type: 'MemberExpression',
+        object: {
+          type: 'Identifier',
+          name: 'Class'
+        },
+        property: {
+          type: 'Identifier',
+          name: 'propTypes'
+        }
+      },
+      right: {
+        type: 'ObjectExpression',
+        properties: propTypeProperties
+      }
+    }
+    it('works', () => {
+      const result = searchForPropTypes(propTypeAssignment, 'Class')
+      expect(result).toEqual(propTypeProperties)
     })
   })
 })
