@@ -6,11 +6,13 @@ import {
   vr,
   buildItBlock,
   buildBeforeEach,
-  buildRenderFunc
+  buildRenderFunc,
+  buildImportStmts
 } from '../lib/tree-builders'
 
 import {
   genJs,
+  genJsList,
   propTypeToMock
 } from '../lib/test-content'
 
@@ -21,7 +23,7 @@ describe('tree-builders', () => {
       const expected =
 `function renderComponent(props) {
   props = props || {}
-  return render(<Foo {...props} />);
+  return shallow(<Foo {...props} />);
 }`
   // expect(genJs(result)).toEqual(
       cmp(genJs(result), expected)
@@ -67,6 +69,25 @@ describe('tree-builders', () => {
   sMock = "sMock"
 })`
       cmp(genJs(result), expected)
+    })
+  })
+
+  describe('buildImportStmts', () => {
+    it('handles empty imports', () => {
+      const result = buildImportStmts([], [])
+      expect(genJsList(result)).toEqual('')
+    })
+
+    it('handles a named import', () => {
+      const result = buildImportStmts([{ 'src/foo': ['named'] }], [])
+      expect(genJsList(result)).toEqual(`import { named } from 'src/foo'`)
+    })
+
+    it('handles a default import', () => {
+      const result = buildImportStmts([], [{ 'src/foo': 'Default' }])
+      const expected = `import Default from 'src/foo'`
+      expect(genJsList(result)).toEqual(expected)
+      cmp(genJsList(result), expected)
     })
   })
 })
