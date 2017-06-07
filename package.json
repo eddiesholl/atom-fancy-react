@@ -1,9 +1,9 @@
 {
-  "name": "atom-fancy-react",
+  "name": "fancy-react",
   "main": "./lib/fancy-react",
-  "version": "0.0.0",
-  "description": "A short description of your package",
-  "keywords": [],
+  "version": "1.0.0",
+  "description": "Automation tools and code generation for React projects",
+  "keywords": ["atom", "react", "code generation"],
   "scripts": {
     "test": "jasmine",
     "test:watch": "nodemon --watch ./node_modules/jasmine/bin/jasmine.js"
@@ -11,7 +11,7 @@
   "activationCommands": {
     "atom-workspace": "fancy-react:generate"
   },
-  "repository": "https://github.com/atom/fancy-react",
+  "repository": "https://github.com/eddiesholl/atom-fancy-react",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
