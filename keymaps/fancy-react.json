@@ -1,5 +1,5 @@
 {
   "atom-workspace": {
-    "ctrl-alt-o": "fancy-react:toggle"
+    "ctrl-alt-t": "fancy-react:generate"
   }
 }
