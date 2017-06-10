@@ -23,7 +23,8 @@ describe('tree-builders', () => {
       const expected =
 `function renderComponent(props) {
   props = props || {}
-  return shallow(<Foo {...props} />);
+  return shallow(
+      <Foo {...props} />);
 }`
   // expect(genJs(result)).toEqual(
       cmp(genJs(result), expected)
