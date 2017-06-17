@@ -25,7 +25,7 @@
     "acorn-jsx": "^4.0.1",
     "astring": "^1.0.2",
     "babylon": "^6.17.1",
-    "estree-builder": "^1.6.0",
+    "estree-builder": "git://github.com/eddiesholl/estree-builder.git#8b7365e",
     "mkdirp": "^0.5.1",
     "ramda": "^0.24.0"
   },
