@@ -12,7 +12,9 @@ import {
 
 import {
   genJs,
-  genJsList,
+  genJsList
+} from '../lib/js-gen'
+import {
   propTypeToMock
 } from '../lib/test-content'
 
@@ -75,20 +77,20 @@ describe('tree-builders', () => {
 
   describe('buildImportStmts', () => {
     it('handles empty imports', () => {
-      const result = buildImportStmts([])
+      const result = buildImportStmts([], [])
       expect(genJsList(result)).toEqual('')
     })
 
     it('handles a named import', () => {
     //  const result = buildImportStmts([{ 'src/foo': ['named'] }], [])
-      const input = [{ namedDepImports: { 'src/foo': ['named'] } }]
-      const result = buildImportStmts(input)
+      const input = [{ 'src/foo': ['named'] }]
+      const result = buildImportStmts(input, [])
       expect(genJsList(result)).toEqual(`import { named } from 'src/foo'`)
     })
 
     it('handles a default import', () => {
-      const input = [{ defaultDepImports: { 'src/foo': 'Default' } }]
-      const result = buildImportStmts(input)
+      const input = [{ 'src/foo': 'Default' }]
+      const result = buildImportStmts([], input)
       const expected = `import Default from 'src/foo'`
       expect(genJsList(result)).toEqual(expected)
       cmp(genJsList(result), expected)

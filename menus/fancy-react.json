@@ -2,8 +2,12 @@
   "context-menu": {
     "atom-text-editor": [
       {
-        "label": "Generate fancy-react",
+        "label": "Generate Component from snippet (fancy-react)",
         "command": "fancy-react:generate"
+      },
+      {
+        "label": "Generate tests for source file (fancy-react)",
+        "command": "fancy-react:tests"
       }
     ]
   },
@@ -15,8 +19,12 @@
           "label": "fancy-react",
           "submenu": [
             {
-              "label": "Generate",
+              "label": "Generate Component from snippet",
               "command": "fancy-react:generate"
+            },
+            {
+              "label": "Generate tests for source file",
+              "command": "fancy-react:tests"
             }
           ]
         }
