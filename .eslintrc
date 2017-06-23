@@ -4,7 +4,8 @@
     "ecmaVersion": 6,
     "sourceType": "module",
     "ecmaFeatures": {
-        "jsx": true
+        "jsx": true,
+        "experimentalObjectRestSpread": true
     }
   },
   "env": {
@@ -16,6 +17,8 @@
       "var2": false
   },
   "rules": {
-    "no-console": 0
+    "no-console": 0,
+    "no-undef": 0,
+    "indent": 0
   }
 }

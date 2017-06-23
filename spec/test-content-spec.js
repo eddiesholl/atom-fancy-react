@@ -8,12 +8,17 @@ import {
 
 const sampleModulePath = '/a/b'
 
-// const randoFuncInput = `export const randoFunc = (a) => a`
-// const randoFuncOutput =
-// `
-// import { randoFunc } from '${sampleModulePath}'
-//
-// describe("randoFunc", function () {})`
+const randoFuncInput = `export const randoFunc = (a) => a`
+const randoFuncOutput =
+`
+import { randoFunc } from '${sampleModulePath}'
+
+describe("randoFunc", function () {
+  it("works", function () {
+    var result = randoFunc();
+    expect(result).to.deepEqual({})
+  })
+})`
 
 describe('test-content', () => {
 
@@ -23,11 +28,11 @@ describe('test-content', () => {
       expect(result).toEqual('')
     })
 
-  //   it('handles a single func', () => {
-  //     const result = generate(
-  //       randoFuncInput, null, sampleModulePath)
-  //     expect(result).toEqual(randoFuncOutput)
-  //   })
+    it('handles a single func', () => {
+      const result = generate(
+        randoFuncInput, null, sampleModulePath)
+      expect(result).toEqual(randoFuncOutput)
+    })
   })
 
 })
