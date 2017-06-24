@@ -99,6 +99,7 @@ describe('node-ops', () => {
         properties: propTypeProperties
       }
     }
+
     it('works', () => {
       const result = searchForPropTypes(propTypeAssignment, 'Class')
       expect(result).toEqual(propTypeProperties)
