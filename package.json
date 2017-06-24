@@ -1,7 +1,7 @@
 {
   "name": "fancy-react",
   "main": "./lib/fancy-react",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Automation tools and code generation for React projects",
   "keywords": [
     "atom",
