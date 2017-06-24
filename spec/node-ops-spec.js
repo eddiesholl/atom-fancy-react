@@ -2,9 +2,58 @@
 
 import e from 'estree-builder'
 
-import { searchByType, searchForPropTypes } from '../lib/node-ops'
+import {
+  searchByType,
+  searchForPropTypes,
+  searchByLocationAndType
+} from '../lib/node-ops'
 
 describe('node-ops', () => {
+  describe('searchByLocationAndType', () => {
+    const insideFindMe = {
+      type: 'JSXElement',
+      name: { name: 'insideFindMe' },
+      loc: { start: { column: 5, line: 6 }, end: { column: 8, line: 6 }}}
+    const findMe = {
+      type: 'JSXElement',
+      name: { name: 'findMe' },
+      children: [insideFindMe],
+      loc: { start: { column: 5, line: 5 }, end: { column: 5, line: 7 }}}
+    const siblingOfFindMe = {
+      type: 'JSXElement',
+      name: { name: 'siblingOfFindMe' },
+      loc: { start: { column: 5, line: 8 }, end: { column: 5, line: 9 }}}
+    const parent = {
+      type: 'JSXElement',
+      name: { name: 'parent' },
+      children: [findMe, siblingOfFindMe],
+      loc: { start: { column: 5, line: 4 }, end: { column: 5, line: 10 }}}
+
+    it('can find a jsx node within a jsx tree', () => {
+      const result = searchByLocationAndType(
+        parent, { line: 5, column: 6 },
+        'JSXElement'
+      )
+      expect(result).toEqual(findMe)
+    })
+
+    it('can find a fully nested jsx node', () => {
+      const result = searchByLocationAndType(
+        parent, { line: 6, column: 6 },
+        'JSXElement'
+      )
+      expect(result).toEqual(insideFindMe)
+    })
+
+    it('can find a nested jsx node on the closing tag', () => {
+      const result = searchByLocationAndType(
+        parent, { line: 7, column: 4 },
+        'JSXElement'
+      )
+      expect(result).toEqual(findMe)
+    })
+  })
+
   describe('searchByType', () => {
     const idChild = { type: 'idChild' }
     const rootNode = {
