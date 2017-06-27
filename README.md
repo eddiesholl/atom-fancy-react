@@ -30,6 +30,10 @@ Start from a snippet of a proposed React component in some jsx somewhere, and ge
 
 The plugin makes heavy use of javascript ASTs to process input source code, and to generate output code. Currently the parsing is done using `acorn` and `acorn-jsx`, node construction via `estree-builder`, and generation by `astring`. This is more labor intensive than simple string templates but should allow much richer functionality and opportunity for extension.
 
+# Resources
+
+There is a sample package available at https://github.com/eddiesholl/atom-fancy-react-test that offers an example package structure that works with this plugin, and some sample components to play around with. For example, there are some missing components that can be `generate`d to complete the implementation.
+
 # Future items
 
 ## Wider configuration for project structure

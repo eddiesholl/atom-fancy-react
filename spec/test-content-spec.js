@@ -34,6 +34,7 @@ export class Foo extends Component {
 const classOutput = `
 import { Foo } from '/a/b'
 import { shallow } from 'enzyme'
+import { expect } from 'chai'
 import React from 'react'
 
 describe("render Foo", function () {
