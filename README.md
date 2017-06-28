@@ -1,4 +1,5 @@
 # fancy-react package
+![](https://travis-ci.org/eddiesholl/atom-fancy-react.svg?branch=master)
 
 This is an atom plugin designed to accelerate `React` development, by automating common and repetitive tasks inside a typical React project.
 
