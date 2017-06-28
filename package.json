@@ -8,6 +8,47 @@
     "react",
     "code generation"
   ],
+  "configSchema": {
+    "testStructure": {
+      "type": "string",
+      "order": 0,
+      "title": "Test structure",
+      "default": "ParallelDirs",
+      "description": "How do you prefer to store tests?",
+      "enum": [
+        "ParallelDirs",
+        "SameDir",
+        "SubDir"
+      ]
+    },
+    "packagePath": {
+      "type": "string",
+      "order": 1,
+      "title": "React root within package",
+      "description": "Relative path from the actual package root",
+      "default": "client"
+    },
+    "sourcePath": {
+      "type": "string",
+      "order": 2,
+      "title": "Path from react root to source code",
+      "default": "src"
+    },
+    "testPath": {
+      "type": "string",
+      "order": 3,
+      "title": "Test root within package",
+      "description": "Only needed when using ParallelDirs",
+      "default": "test"
+    },
+    "testSuffix": {
+      "type": "string",
+      "order": 4,
+      "title": "The filename suffix added to your test files",
+      "description": "For example Foo.js -> Foo-test.js",
+      "default": "-test"
+    }
+  },
   "scripts": {
     "test": "babel-node spec/run.js",
     "test:watch": "nodemon ./node_modules/babel-cli/bin/babel-node.js spec/run.js",
