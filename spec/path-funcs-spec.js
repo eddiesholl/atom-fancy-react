@@ -3,7 +3,6 @@
 import paths from '../lib/path-funcs'
 
 const projectPath1 = '/a/b'
-const projectPath2 = '/c/d'
 
 describe('paths', () => {
 

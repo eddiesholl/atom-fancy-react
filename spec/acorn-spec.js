@@ -12,8 +12,8 @@ describe('acorn', () => {
 
   describe('parse', () => {
       it('can process a Class', () => {
-        const result = parse(classDef)
-        //expect(result).toEqual(projectPath1)
+        const parser = () => parse(classDef)
+        expect(parser).not.toThrow()
       })
   })
 })

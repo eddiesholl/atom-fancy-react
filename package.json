@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "test": "babel-node spec/run.js",
-    "test:watch": "nodemon ./node_modules/babel-cli/bin/babel-node.js spec/run.js"
+    "test:watch": "nodemon ./node_modules/babel-cli/bin/babel-node.js spec/run.js",
+    "lint": "eslint ."
   },
   "activationCommands": {
     "atom-workspace": "fancy-react:generate"
@@ -34,6 +35,7 @@
     "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.1.1",
     "eslint-plugin-jasmine": "^2.2.0",
     "jasmine": "^2.6.0"
   }

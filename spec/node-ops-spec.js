@@ -1,7 +1,5 @@
 'use babel'
 
-import e from 'estree-builder'
-
 import {
   searchByType,
   searchForPropTypes,
