@@ -35,6 +35,10 @@ The plugin makes heavy use of javascript ASTs to process input source code, and 
 
 There is a sample package available at https://github.com/eddiesholl/atom-fancy-react-test that offers an example package structure that works with this plugin, and some sample components to play around with. For example, there are some missing components that can be `generate`d to complete the implementation.
 
+# Contributing
+
+If your particular configuration is not supported, feel free to open an issue and describe the changes you are looking for. Pull requests are most welcome!
+
 # Future items
 
 ## Wider configuration for project structure
