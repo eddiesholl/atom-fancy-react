@@ -38,18 +38,18 @@ import { expect } from 'chai'
 import React from 'react'
 
 describe("render Foo", function () {
-  var aMock;
-  var bMock;
+  var aMockData;
+  var bMockData;
   beforeEach(function () {
-    aMock = "aMock"
-    bMock = "bMock"
+    aMockData = "aMock"
+    bMockData = "bMock"
   })
   function renderComponent(props) {
     props = props || {}
     return shallow(
       <Foo
-        a={aMock}
-        b={bMock}
+        a={aMockData}
+        b={bMockData}
         {...props} />);
   }
   it("can render", function () {
