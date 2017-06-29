@@ -27,9 +27,45 @@ Start from a snippet of a proposed React component in some jsx somewhere, and ge
 
 ![generate](https://github.com/eddiesholl/atom-fancy-react/raw/master/doc/generate-component.gif "generate")
 
-# Implementation & Dependencies
+# Package configuration
 
-The plugin makes heavy use of javascript ASTs to process input source code, and to generate output code. Currently the parsing is done using `acorn` and `acorn-jsx`, node construction via `estree-builder`, and generation by `astring`. This is more labor intensive than simple string templates but should allow much richer functionality and opportunity for extension.
+All configuration items can be set globally using the Atom settings page for `fancy-react`. If you have a React repo that needs some specific configuration, you can include keys inside that repo's `package.json` file, under a `fancyReact` key.
+
+```json
+},
+"devDependencies": {
+  "chai": "^4.0.2",
+  "react-dom": "^15.6.1",
+  "react-test-renderer": "^15.6.1"
+},
+"fancyReact": {
+  "testStructure": "SubDir",
+  "packagePath": "client",
+  "sourcePath": "src",
+  "testPath": "test",
+  "testSuffix": "-test"
+}
+```
+You can see an example config in the [package.json](https://github.com/eddiesholl/atom-fancy-react-test/blob/master/package.json#L43) file for `atom-fancy-react-test`.
+
+The examples here all describe a component defined at `<rootDir>/client/src/components/Foo/Foo.js`.
+## testStructure
+What is the general strategy for storing test files.
+
+- ParallelDirs - The entire src folder is mirrored, and contains all of your tests. For example `client/src/components/Foo/Foo.js` -> `client/test/components/Foo/Foo-test.js`
+
+- SameDir - Every test lives in the same folder as its source file. For example `client/src/components/Foo/Foo.js` -> `client/src/components/Foo/Foo-test.js`
+
+- SubDir - Every test lives in a sub folder of where the source file is. For example `client/src/components/Foo/Foo.js` -> `client/src/components/Foo/test/Foo-test.js`
+
+## packagePath
+What is the path within the repo to the start of the react code. For example, `client`
+## sourcePath
+What is the path within the react root to get to the source files. For example, `src`
+## testPath
+What is the path within the react root to get to the test files. In `ParallelDirs` mode, for the example above, `test`. This is also a valid value for `SubDir` mode, it will nest test files under their source folder at `test`.
+## testSuffix
+The suffix to append to the source file name. For example, `-test`.
 
 # Resources
 
@@ -37,7 +73,11 @@ There is a sample package available at https://github.com/eddiesholl/atom-fancy-
 
 # Contributing
 
-If your particular configuration is not supported, feel free to open an issue and describe the changes you are looking for. Pull requests are most welcome!
+The success of this package is based on supporting a wide range of dependencies, styles, approaches and package conventions. If your particular configuration is not supported, feel free to open an issue and describe the changes you are looking for. Pull requests are also most welcome!
+
+# Implementation & Dependencies
+
+The plugin makes heavy use of javascript ASTs to process input source code, and to generate output code. Currently the parsing is done using `acorn` and `acorn-jsx`, node construction via `estree-builder`, and generation by `astring`. This is more labor intensive than simple string templates but should allow much richer functionality and opportunity for extension.
 
 # Future items
 
