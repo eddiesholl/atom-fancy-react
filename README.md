@@ -49,6 +49,9 @@ All configuration items can be set globally using the Atom settings page for `fa
 You can see an example config in the [package.json](https://github.com/eddiesholl/atom-fancy-react-test/blob/master/package.json#L43) file for `atom-fancy-react-test`.
 
 The examples here all describe a component defined at `<rootDir>/client/src/components/Foo/Foo.js`.
+
+Currently you need to restart Atom to pick up any changes to settings.
+
 ## testStructure
 What is the general strategy for storing test files.
 
