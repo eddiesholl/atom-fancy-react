@@ -3,15 +3,7 @@
 
 This is an atom plugin designed to accelerate `React` development, by automating common and repetitive tasks inside a typical React project.
 
-# Supported configuration
-
-The current workflows and generated code are built around a few basic assumptions about how the React project is laid out. It is desirable for a wider range of project layouts and packages to be supported in the future. For now it is fairly restrictive.
-
-The current assumptions made are:
-
-- All `React` source code files are located under `client/src`, with corresponding test files located at `client/test`
-- Test files are named as `thing.js` -> `thing-test.js`
-- Unit test files are using `jest`, `enzyme` and `chai`
+Currently it is assumed that unit test files are using `jest`, `enzyme` and `chai`
 
 # Commands
 
@@ -28,6 +20,8 @@ Start from a snippet of a proposed React component in some jsx somewhere, and ge
 ![generate](https://github.com/eddiesholl/atom-fancy-react/raw/master/doc/generate-component.gif "generate")
 
 # Package configuration
+
+The current workflows and generated code are built around a few basic assumptions about how the React project is laid out. The set of supported configurations and conventions will be expanding over time.
 
 All configuration items can be set globally using the Atom settings page for `fancy-react`. If you have a React repo that needs some specific configuration, you can include keys inside that repo's `package.json` file, under a `fancyReact` key.
 
