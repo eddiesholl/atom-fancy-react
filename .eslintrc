@@ -19,6 +19,6 @@
   "rules": {
     "no-console": 0,
     "no-undef": "error",
-    "indent": ["error", 2]
+    "indent": ["error", 2, { "SwitchCase": 1 }]
   }
 }

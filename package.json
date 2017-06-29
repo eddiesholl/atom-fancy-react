@@ -37,8 +37,8 @@
     "testPath": {
       "type": "string",
       "order": 3,
-      "title": "Test root within package",
-      "description": "Only needed when using ParallelDirs",
+      "title": "Name of directory that contains tests",
+      "description": "ParallelDirs -> dir name inside react root. SubDir -> Name of the sub directory",
       "default": "test"
     },
     "testSuffix": {
