@@ -54,9 +54,7 @@
     "test:watch": "nodemon ./node_modules/babel-cli/bin/babel-node.js spec/run.js",
     "lint": "eslint ."
   },
-  "activationCommands": {
-    "atom-workspace": "fancy-react:generate"
-  },
+  "activationHooks": ["language-javascript:grammar-used", "language-javascript-jsx:grammar-used"],
   "repository": "https://github.com/eddiesholl/atom-fancy-react",
   "license": "MIT",
   "engines": {
