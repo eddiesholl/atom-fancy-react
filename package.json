@@ -1,7 +1,7 @@
 {
   "name": "fancy-react",
   "main": "./lib/fancy-react",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Automation tools and code generation for React projects",
   "keywords": [
     "atom",
@@ -54,7 +54,10 @@
     "test:watch": "nodemon ./node_modules/babel-cli/bin/babel-node.js spec/run.js",
     "lint": "eslint ."
   },
-  "activationHooks": ["language-javascript:grammar-used", "language-javascript-jsx:grammar-used"],
+  "activationHooks": [
+    "language-javascript:grammar-used",
+    "language-javascript-jsx:grammar-used"
+  ],
   "repository": "https://github.com/eddiesholl/atom-fancy-react",
   "license": "MIT",
   "engines": {
