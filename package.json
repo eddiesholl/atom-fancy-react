@@ -66,6 +66,7 @@
   "dependencies": {
     "acorn": "^4.0.13",
     "acorn-jsx": "^4.0.1",
+    "acorn-object-spread": "git://github.com/jbboehr/acorn-object-spread.git#f39f310",
     "acorn-static-class-property-initializer": "^1.0.0",
     "astring": "^1.0.2",
     "babylon": "^6.17.1",
