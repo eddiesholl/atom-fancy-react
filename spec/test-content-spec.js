@@ -62,23 +62,23 @@ describe('test-content', () => {
   describe('generate', () => {
     it('is empty for invalid cases', () => {
       const result = generate('', null, sampleModulePath)
-      expect(result).toEqual('')
+      expect(result.content).toEqual('')
     })
 
     it('handles a single func', () => {
       const result = generate(
         randoFuncInput, null, sampleModulePath)
-      expect(result).toEqual(randoFuncOutput)
+      expect(result.content).toEqual(randoFuncOutput)
     })
 
     it('works with a component class', () => {
       const result = generate(classLegacyPropsInput, null, sampleModulePath)
-      expect(result).toEqual(classOutput)
+      expect(result.content).toEqual(classOutput)
     })
 
     it('works with a component class with static properties', () => {
       const result = generate(classStaticPropsInput, null, sampleModulePath)
-      expect(result).toEqual(classOutput)
+      expect(result.content).toEqual(classOutput)
     })
   })
 
