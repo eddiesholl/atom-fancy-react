@@ -79,6 +79,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "eslint": "^4.1.1",
     "eslint-plugin-jasmine": "^2.2.0",
-    "jasmine": "^2.6.0"
+    "jasmine": "^2.6.0",
+    "nodemon": "^1.11.0"
   }
 }
