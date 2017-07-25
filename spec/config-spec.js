@@ -6,7 +6,7 @@ describe('config', () => {
 
   describe('buildConfig', () => {
     const testUserConfig = { testStructure: 'b' }
-    const testPackageConfig = { testStructure: 'c' }
+    const testPackageConfig = { fancyReact: { testStructure: 'c' } }
     const testProjectRoot = '/a/b'
 
     it('can merge basic config', () => {
