@@ -64,6 +64,19 @@ What is the path within the react root to get to the test files. In `ParallelDir
 ## testSuffix
 The suffix to append to the source file name. For example, `-test`.
 
+# Integration
+
+A goal of the project is to 'automagically' detect as much as possible about the patterns and tools of the current project. The current integrations supported are:
+
+ ## eslint
+If your project uses `eslint` to enforce syntax requirements, any code generation will try to find local eslint configuration, and use this to 'fix' generated syntax. This is not perfect but will generally do a good match of creating acceptable syntax.
+
+Specifically, this is how it works:
+ - check if `eslint` appears in the list of `dependencies` or `devDependencies`
+ - if so, spin up an `eslint` instance using http://eslint.org/docs/developer-guide/nodejs-api#cliengine
+ - this will be able to respect all of the `.eslintrc` files that may exist in your project
+ - the generated code is passed through in `fix` mode. This means that rules can only be respected if they implement a fix
+
 # Resources
 
 There is a sample package available at https://github.com/eddiesholl/atom-fancy-react-test that offers an example package structure that works with this plugin, and some sample components to play around with. For example, there are some missing components that can be `generate`d to complete the implementation.
