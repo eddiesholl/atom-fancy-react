@@ -68,7 +68,7 @@
     "acorn-jsx": "^4.0.1",
     "acorn-object-spread": "git://github.com/jbboehr/acorn-object-spread.git#f39f310",
     "acorn-static-class-property-initializer": "^1.0.0",
-    "astring": "^1.0.2",
+    "astring": "^1.0.5",
     "babylon": "^6.17.1",
     "binary-parser": "git://github.com/shamansir/binary-parser.git#with-loophole",
     "eslint": "^4.1.1",
