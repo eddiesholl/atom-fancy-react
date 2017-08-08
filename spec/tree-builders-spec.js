@@ -3,7 +3,7 @@
 import e from 'estree-builder'
 
 import {
-  vr,
+  lt,
   buildItBlock,
   buildBeforeEach,
   buildRenderFunc,
@@ -24,7 +24,7 @@ describe('tree-builders', () => {
       const result = buildRenderFunc('Foo')
       const expected =
 `function renderComponent(props) {
-  props = props || {}
+  props = props || ({})
   return shallow(
       <Foo {...props} />);
 }`
@@ -57,13 +57,13 @@ describe('tree-builders', () => {
       const result = buildBeforeEach([{
         propName: 'f',
         mockName: 'fMock',
-        mockVar: vr('fMock'),
+        mockVar: lt('fMock'),
         mockVal: propTypeToMock['func']()
       },
       {
         propName: 's',
         mockName: 'sMock',
-        mockVar: vr('sMock'),
+        mockVar: lt('sMock'),
         mockVal: e.string('sMock')
       }])
       const expected =
@@ -100,7 +100,7 @@ describe('tree-builders', () => {
 
 const cmp = (ac, exp) => {
   expect(ac).toEqual(exp)
-  for (var i = 0; i < ac.length; i++) {
+  for (let i = 0; i < ac.length; i++) {
     expect(ac[i]).toEqual(exp[i])
   }
 }

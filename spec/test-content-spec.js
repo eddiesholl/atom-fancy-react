@@ -15,7 +15,7 @@ import { randoFunc } from '${sampleModulePath}'
 
 describe("randoFunc", function () {
   it("works", function () {
-    var result = randoFunc();
+    const result = randoFunc();
     expect(result).to.deepEqual({})
   })
 })`
@@ -38,14 +38,14 @@ import { expect } from 'chai'
 import React from 'react'
 
 describe("render Foo", function () {
-  var aMockData;
-  var bMockData;
+  let aMockData;
+  let bMockData;
   beforeEach(function () {
     aMockData = "aMock"
     bMockData = "bMock"
   })
   function renderComponent(props) {
-    props = props || {}
+    props = props || ({})
     return shallow(
       <Foo
         a={aMockData}
@@ -53,7 +53,7 @@ describe("render Foo", function () {
         {...props} />);
   }
   it("can render", function () {
-    var result = renderComponent();
+    const result = renderComponent();
     expect(result).to.deep.equal(result)
   })
 })`
