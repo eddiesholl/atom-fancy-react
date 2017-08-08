@@ -45,7 +45,7 @@ describe("render Foo", function () {
     bMockData = "bMock"
   })
   function renderComponent(props) {
-    props = props || {}
+    props = props || ({})
     return shallow(
       <Foo
         a={aMockData}

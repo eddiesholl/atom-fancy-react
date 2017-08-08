@@ -24,7 +24,7 @@ describe('tree-builders', () => {
       const result = buildRenderFunc('Foo')
       const expected =
 `function renderComponent(props) {
-  props = props || {}
+  props = props || ({})
   return shallow(
       <Foo {...props} />);
 }`
