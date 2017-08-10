@@ -38,7 +38,7 @@ describe('tree-builders', () => {
     it('works', () => {
       const result = buildItBlock('desc', [e.string('body')])
       const expected =
-`it("desc", function () {
+`it("desc", () => {
   "body"
 })`
       cmp(genJs(result), expected)
@@ -49,7 +49,7 @@ describe('tree-builders', () => {
     it('works', () => {
       const result = buildBeforeEach([])
       const expected =
-`beforeEach(function () {})`
+`beforeEach(() => {})`
       cmp(genJs(result), expected)
     })
 
@@ -67,7 +67,7 @@ describe('tree-builders', () => {
         mockVal: e.string('sMock')
       }])
       const expected =
-`beforeEach(function () {
+`beforeEach(() => {
   fMock = jest.fn()
   sMock = "sMock"
 })`
