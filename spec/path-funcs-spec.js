@@ -59,3 +59,19 @@ describe('paths with SubDir', () => {
     })
   })
 })
+
+describe('custom config', () => {
+  const customConfig = {
+    packagePath: 'pp',
+    sourcePath: 'sp',
+    testPath: 'tp',
+    testSuffix: '-ts',
+    projectRoot: '/1/2'
+  }
+  describe('packagePath', () => {
+    it('componentDetails', () => {
+      const result = pathFuncs(customConfig).componentDetails('cn')
+      expect(result.folderPath).toEqual('/1/2/pp/sp/components/cn')
+    })
+  })
+})
