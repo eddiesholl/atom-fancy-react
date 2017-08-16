@@ -1,3 +1,8 @@
+## 0.4.4
+* Hard coded references to client folder instead of using packagePath setting https://github.com/eddiesholl/atom-fancy-react/issues/55
+
+...
+
 ## 0.2.1
 * Bug fixes
 
