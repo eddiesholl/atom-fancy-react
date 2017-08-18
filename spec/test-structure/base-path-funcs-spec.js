@@ -1,6 +1,8 @@
 'use babel'
 
-import pathFuncs from '../lib/path-funcs'
+/*
+const pathFuncs = require('../lib/path-funcs')
+const { buildPaths } = require('../lib/config')
 
 const configBase = {
   packagePath: 'client',
@@ -13,9 +15,9 @@ const configParallelDirs = { testStructure: 'ParallelDirs', ...configBase }
 const configSameDir = { testStructure: 'SameDir', ...configBase }
 const configSubDir = { testStructure: 'SubDir', ...configBase }
 
-const pfParallelDirs = pathFuncs(configParallelDirs)
-const pfSameDir = pathFuncs(configSameDir)
-const pfSubDir = pathFuncs(configSubDir)
+const pfParallelDirs = pathFuncs(buildPaths(configParallelDirs), configParallelDirs)
+const pfSameDir = pathFuncs(buildPaths(configSameDir), configSameDir)
+const pfSubDir = pathFuncs(buildPaths(configSubDir), configSubDir)
 
 const projectPath1 = '/a/b'
 
@@ -30,9 +32,8 @@ describe('path-funcs with ParallelDirs', () => {
 
   describe('sourceFileToTestFile', () => {
     it('can translate a simple source file', () => {
-      const result = pfParallelDirs.sourceFileToTestFile(
-        projectPath1 + '/client/src/foo/bar.js',
-        projectPath1)
+      const result =
+        pfParallelDirs.sourceFileToTestFile(projectPath1 + '/client/src/foo/bar.js')
       expect(result).toEqual(projectPath1 + '/client/test/foo/bar-test.js')
     })
   })
@@ -53,8 +54,7 @@ describe('paths with SubDir', () => {
   describe('sourceFileToTestFile', () => {
     it('can translate a simple source file', () => {
       const result = pfSubDir.sourceFileToTestFile(
-        projectPath1 + '/client/src/foo/bar.js',
-        projectPath1)
+        projectPath1 + '/client/src/foo/bar.js')
       expect(result).toEqual(projectPath1 + '/client/src/foo/test/bar-test.js')
     })
   })
@@ -62,6 +62,7 @@ describe('paths with SubDir', () => {
 
 describe('custom config', () => {
   const customConfig = {
+    testStructure: 'SameDir',
     packagePath: 'pp',
     sourcePath: 'sp',
     testPath: 'tp',
@@ -70,8 +71,9 @@ describe('custom config', () => {
   }
   describe('packagePath', () => {
     it('componentDetails', () => {
-      const result = pathFuncs(customConfig).componentDetails('cn')
+      const result = pathFuncs(buildPaths(customConfig), customConfig).componentDetails('cn')
       expect(result.folderPath).toEqual('/1/2/pp/sp/components/cn')
     })
   })
 })
+*/
