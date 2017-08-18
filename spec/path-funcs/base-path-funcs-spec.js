@@ -1,7 +1,6 @@
 'use babel'
 
 const basePathFuncsModule = require('../../lib/path-funcs/base-path-funcs')
-const { buildPaths } = require('../../lib/config')
 
 const configBase = {
   packagePath: 'client',
@@ -17,7 +16,7 @@ const projectPath1 = '/a/b'
 
 describe('base-path-funcs with ParallelDirs', () => {
 
-  const pathFuncs = basePathFuncsModule(buildPaths(configParallelDirs), configParallelDirs)
+  const pathFuncs = basePathFuncsModule(configParallelDirs)
 
   describe('findProjectFor', () => {
       it('finds a simple case', () => {
@@ -38,7 +37,7 @@ describe('custom config', () => {
     pkgJson: {}
   }
 
-  const pathFuncs = basePathFuncsModule(buildPaths(customConfig), customConfig)
+  const pathFuncs = basePathFuncsModule(customConfig)
 
   describe('packagePath', () => {
     it('componentDetails', () => {

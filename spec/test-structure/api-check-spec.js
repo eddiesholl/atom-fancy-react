@@ -14,7 +14,7 @@ const config = {
 }
 
 const paths = buildPaths(config)
-const basePathFuncs = basePathFuncsModule(paths, config)
+const basePathFuncs = basePathFuncsModule(config)
 
 import parallelDirs from '../../lib/test-structure/parallel-dirs'
 import sameDir from '../../lib/test-structure/same-dir'
