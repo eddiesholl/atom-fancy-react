@@ -4,7 +4,13 @@ const { buildPaths } = require('../../lib/config')
 const basePathFuncsModule = require('../../lib/path-funcs/base-path-funcs')
 
 const config = {
-
+  testStructure: 'ParallelDirs',
+  packagePath: '',
+  sourcePath: '',
+  testPath: '',
+  testSuffix: '',
+  projectRoot: '',
+  pkgJson: {}
 }
 
 const paths = buildPaths(config)

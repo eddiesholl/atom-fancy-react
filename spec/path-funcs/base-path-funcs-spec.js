@@ -8,15 +8,16 @@ const configBase = {
   sourcePath: 'src',
   testPath: 'test',
   testSuffix: '-test',
-  projectRoot: '/a/b'
+  projectRoot: '/a/b',
+  pkgJson: {}
 }
 const configParallelDirs = { testStructure: 'ParallelDirs', ...configBase }
-
-const pathFuncs = basePathFuncsModule(buildPaths(configParallelDirs), configParallelDirs)
 
 const projectPath1 = '/a/b'
 
 describe('base-path-funcs with ParallelDirs', () => {
+
+  const pathFuncs = basePathFuncsModule(buildPaths(configParallelDirs), configParallelDirs)
 
   describe('findProjectFor', () => {
       it('finds a simple case', () => {
@@ -33,11 +34,15 @@ describe('custom config', () => {
     sourcePath: 'sp',
     testPath: 'tp',
     testSuffix: '-ts',
-    projectRoot: '/1/2'
+    projectRoot: '/1/2',
+    pkgJson: {}
   }
+
+  const pathFuncs = basePathFuncsModule(buildPaths(customConfig), customConfig)
+
   describe('packagePath', () => {
     it('componentDetails', () => {
-      const result = pathFuncs(buildPaths(customConfig), customConfig).componentDetails('cn')
+      const result = pathFuncs.componentDetails('cn')
       expect(result.folderPath).toEqual('/1/2/pp/sp/components/cn')
     })
   })
