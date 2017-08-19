@@ -29,8 +29,10 @@ const allFuncs = {
 }
 
 describe('test-structure api check', () => {
-  it('includes sourceFileWPToTestFileWP', () => {
-    expectAllHave(allFuncs, 'sourceFileWPToTestFileWP')
+  ['sourceFileWPToTestFileWP', 'testFileWPToSourceFileWP', 'isPathWPTestFile'].forEach(n => {
+    it(`includes ${n}`, () => {
+      expectAllHave(allFuncs, n)
+    })
   })
 })
 
