@@ -11,13 +11,23 @@ Currently it is assumed that unit test files are using `jest`, `enzyme` and `cha
 
 Start from a source code file containing exported functions and classes, and generate a test file with suites for each export. If the test file doesn't exist, then create it using a sensible path and naming structure. If the file does already exist, then merge any existing tests and suites with the ones that have been generated for you.
 
+Default key binding: `ctrl-alt-t`
+
 ![tests](https://github.com/eddiesholl/atom-fancy-react/raw/master/doc/generate-tests.gif "tests")
 
 ## `generate`
 
 Start from a snippet of a proposed React component in some jsx somewhere, and generate a skeleton implementation of that new component. The intention is that the component name, and the names of the essential properties passed to the component, can be typed directly in an existing parent, pretending that it already exists. The code generation can then scaffold as much of that new component as possible.
 
+Default key binding: `ctrl-alt-g`
+
 ![generate](https://github.com/eddiesholl/atom-fancy-react/raw/master/doc/generate-component.gif "generate")
+
+## `switch`
+
+A handy shortcut to quickly jump between a source file and it's corresponding test file, and back.
+
+Default key binding: `ctrl-alt-s`
 
 # Package configuration
 

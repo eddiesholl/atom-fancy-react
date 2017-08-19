@@ -1,5 +1,12 @@
 {
-  "atom-workspace": {
-    "ctrl-alt-t": "fancy-react:generate"
+  "atom-workspace atom-text-editor[data-grammar='source js jsx']": {
+    "ctrl-alt-g": "fancy-react:generate",
+    "ctrl-alt-t": "fancy-react:tests",
+    "ctrl-alt-s": "fancy-react:switch"
+  },
+  "atom-workspace atom-text-editor[data-grammar='source js']": {
+    "ctrl-alt-g": "fancy-react:generate",
+    "ctrl-alt-t": "fancy-react:tests",
+    "ctrl-alt-s": "fancy-react:switch"
   }
 }

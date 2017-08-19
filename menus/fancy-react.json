@@ -2,12 +2,16 @@
   "context-menu": {
     "atom-text-editor": [
       {
-        "label": "Generate Component from snippet (fancy-react)",
+        "label": "Generate component from snippet (fancy-react)",
         "command": "fancy-react:generate"
       },
       {
         "label": "Generate tests for source file (fancy-react)",
         "command": "fancy-react:tests"
+      },
+      {
+        "label": "Switch between source <-> test file (fancy-react)",
+        "command": "fancy-react:switch"
       }
     ]
   },
@@ -19,12 +23,16 @@
           "label": "fancy-react",
           "submenu": [
             {
-              "label": "Generate Component from snippet",
+              "label": "Generate component from snippet",
               "command": "fancy-react:generate"
             },
             {
               "label": "Generate tests for source file",
               "command": "fancy-react:tests"
+            },
+            {
+              "label": "Switch between source <-> test file",
+              "command": "fancy-react:switch"
             }
           ]
         }

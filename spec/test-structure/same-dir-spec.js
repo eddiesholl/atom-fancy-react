@@ -21,4 +21,23 @@ describe('same-dir funcs', () => {
       expect(result).toEqual('/pp/s/components/Foo/Foo-test.js')
     })
   })
+
+  describe('testFileWPToSourceFileWP', () => {
+    it('can translate from test to source', () => {
+      const result = sameDir.testFileWPToSourceFileWP('/pp/s/components/Foo/Foo-test.js')
+      expect(result).toEqual('/pp/s/components/Foo/Foo.js')
+    })
+  })
+
+  describe('isPathWPTestFile', () => {
+    it('can perform a simple match', () => {
+      const result = sameDir.isPathWPTestFile('/pp/s/components/Foo/Foo-test.js')
+      expect(result).toBe(true)
+    })
+
+    it('fails for a source file', () => {
+      const result = sameDir.isPathWPTestFile('/pp/s/components/Foo/Foo.js')
+      expect(result).toBe(false)
+    })
+  })
 })
