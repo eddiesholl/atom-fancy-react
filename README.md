@@ -47,7 +47,7 @@ The examples here all describe a component defined at `<rootDir>/client/src/comp
 Currently you need to restart Atom to pick up any changes to settings.
 
 ## testStructure
-What is the general strategy for storing test files.
+Specify the general strategy for storing test files.
 
 - ParallelDirs - The entire src folder is mirrored, and contains all of your tests. For example `client/src/components/Foo/Foo.js` -> `client/test/components/Foo/Foo-test.js`
 
@@ -76,6 +76,24 @@ Specifically, this is how it works:
  - if so, spin up an `eslint` instance using http://eslint.org/docs/developer-guide/nodejs-api#cliengine
  - this will be able to respect all of the `.eslintrc` files that may exist in your project
  - the generated code is passed through in `fix` mode. This means that rules can only be respected if they implement a fix
+
+# Troubleshooting
+
+In general if the plugin is not behaving how you expect, it can be useful to open up the Atom dev tools using `View -> Developer -> Toggle Developer Tools` and have a look in the console.
+
+Sometimes the package may fail to load on Atom startup. If you see a message like:
+
+```
+Failed to require the main module of 'fancy-react' because it requires an incompatible native module.
+Run `apm rebuild` in the package directory to resolve.```
+
+You need to follow some specific steps:
+
+ - Find the red bug icon at the bottom of Atom, in the status bar
+ - Click on it
+ - Follow the steps to rebuild `fancy-react`
+
+See [here](https://discuss.atom.io/t/incompatible-native-module/21454/2) for more details.
 
 # Resources
 
