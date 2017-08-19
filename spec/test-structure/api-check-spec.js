@@ -1,6 +1,5 @@
 'use babel'
 
-const { buildPaths } = require('../../lib/config')
 const basePathFuncsModule = require('../../lib/path-funcs/base-path-funcs')
 
 const config = {
@@ -13,16 +12,15 @@ const config = {
   pkgJson: {}
 }
 
-const paths = buildPaths(config)
 const basePathFuncs = basePathFuncsModule(config)
 
 import parallelDirs from '../../lib/test-structure/parallel-dirs'
 import sameDir from '../../lib/test-structure/same-dir'
 import subDir from '../../lib/test-structure/sub-dir'
 
-const parallelDirsFuncs = parallelDirs(paths, config, basePathFuncs)
-const sameDirFuncs = sameDir(paths, config, basePathFuncs)
-const subDirFuncs = subDir(paths, config, basePathFuncs)
+const parallelDirsFuncs = parallelDirs(basePathFuncs, config)
+const sameDirFuncs = sameDir(basePathFuncs, config)
+const subDirFuncs = subDir(basePathFuncs, config)
 
 const allFuncs = {
   parallelDirs: parallelDirsFuncs,
