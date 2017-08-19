@@ -1,3 +1,7 @@
+## 0.5.0
+* Adds new action `switch`
+* Key bindings set for actions generate, tests and switch: `ctrl-alt-g`, `ctrl-alt-t`, `ctrl-alt-s`
+
 ## 0.4.4
 * Hard coded references to client folder instead of using packagePath setting https://github.com/eddiesholl/atom-fancy-react/issues/55
 
