@@ -1,3 +1,7 @@
+## 0.5.1
+* Fix: Issue 21 - Throws error on package deactivate
+* Fix: Issue 52: Test generation for a default export with a component wrapped in a function
+
 ## 0.5.0
 * Adds new action `switch`
 * Key bindings set for actions generate, tests and switch: `ctrl-alt-g`, `ctrl-alt-t`, `ctrl-alt-s`
