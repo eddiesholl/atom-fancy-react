@@ -26,6 +26,15 @@ export class Foo extends Component {
 }
 Foo.propTypes = { a: PropTypes.string.isRequired, b: PropTypes.object }
 `
+const connectedClassInput = `
+export class Foo extends Component {
+  render() {}
+}
+Foo.propTypes = { a: PropTypes.string.isRequired, b: PropTypes.object }
+
+const mapStateToProps = () => {}
+export default connect(mapStateToProps)(Foo)
+`
 const classStaticPropsInput = `
 export class Foo extends Component {
   static propTypes = { a: PropTypes.string.isRequired, b: PropTypes.object }
@@ -78,6 +87,11 @@ describe('test-content', () => {
 
     it('works with a component class with static properties', () => {
       const result = generate(classStaticPropsInput, null, sampleModulePath)
+      expect(result.content).toEqual(classOutput)
+    })
+
+    it('works with a connected class', () => {
+      const result = generate(connectedClassInput, null, sampleModulePath)
       expect(result.content).toEqual(classOutput)
     })
   })
