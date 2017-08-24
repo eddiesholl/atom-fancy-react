@@ -1,10 +1,32 @@
 'use babel'
 
+import e from 'estree-builder'
 
 import {
-  generate
+  generate,
+  processPropTypes,
+  jestMockFn
 } from '../lib/test-content'
 
+
+const genRequiredProp = (name, type) => {
+  return {
+    key: { value: name },
+    value: {
+      property: { name: 'isRequired' },
+      object: { property: { name: type } }
+    }
+  }
+}
+
+const genOptionalProp = (name, type) => {
+  return {
+    key: { value: name },
+    value: {
+      property: { name: type }
+    }
+  }
+}
 
 const sampleModulePath = '/a/b'
 
@@ -50,8 +72,8 @@ describe("render Foo", () => {
   let aMockData;
   let bMockData;
   beforeEach(() => {
-    aMockData = "aMock"
-    bMockData = "bMock"
+    aMockData = "aMockValue"
+    bMockData = {}
   })
   function renderComponent(props) {
     props = props || ({})
@@ -96,4 +118,103 @@ describe('test-content', () => {
     })
   })
 
+  describe('processPropTypes', () => {
+    const requiredString = genRequiredProp('requiredString', 'string')
+    const requiredObject = genRequiredProp('requiredObject', 'object')
+    const requiredFunc = genRequiredProp('requiredFunc', 'func')
+    const requiredNumber = genRequiredProp('requiredNumber', 'number')
+
+    const optionalString = genOptionalProp('optionalString', 'string')
+    const optionalObject = genOptionalProp('optionalObject', 'object')
+    const optionalFunc = genOptionalProp('optionalFunc', 'func')
+    const optionalNumber = genOptionalProp('optionalNumber', 'number')
+
+    describe('when no props are passed', () => {
+      it('returns no mocks', () => {
+        const result = processPropTypes([])
+
+        expect(result).toEqual([])
+      })
+    })
+
+    describe('when strings are passed', () => {
+      let result,
+          first, second
+      beforeEach(() => {
+        result = processPropTypes([requiredString, optionalString])
+        first = result[0]
+        second = result[1]
+      })
+
+      it('mocks a required string', () => {
+        expect(first.propName).toEqual('requiredString')
+        expect(first.mockVal).toEqual(e.string('requiredStringMockValue'))
+      })
+
+      it('mocks an optional string', () => {
+        expect(second.propName).toEqual('optionalString')
+        expect(second.mockVal).toEqual(e.string('optionalStringMockValue'))
+      })
+    })
+
+    describe('when objects are passed', () => {
+      let result,
+          first, second
+      beforeEach(() => {
+        result = processPropTypes([requiredObject, optionalObject])
+        first = result[0]
+        second = result[1]
+      })
+
+      it('mocks a required object', () => {
+        expect(first.propName).toEqual('requiredObject')
+        expect(first.mockVal).toEqual(e.object())
+      })
+
+      it('mocks an optional object', () => {
+        expect(second.propName).toEqual('optionalObject')
+        expect(second.mockVal).toEqual(e.object())
+      })
+    })
+
+    describe('when funcs are passed', () => {
+      let result,
+          first, second
+      beforeEach(() => {
+        result = processPropTypes([requiredFunc, optionalFunc])
+        first = result[0]
+        second = result[1]
+      })
+
+      it('mocks a required func', () => {
+        expect(first.propName).toEqual('requiredFunc')
+        expect(first.mockVal).toEqual(jestMockFn)
+      })
+
+      it('mocks an optional func', () => {
+        expect(second.propName).toEqual('optionalFunc')
+        expect(second.mockVal).toEqual(jestMockFn)
+      })
+    })
+
+    describe('when numbers are passed', () => {
+      let result,
+          first, second
+      beforeEach(() => {
+        result = processPropTypes([requiredNumber, optionalNumber])
+        first = result[0]
+        second = result[1]
+      })
+
+      it('mocks a required number', () => {
+        expect(first.propName).toEqual('requiredNumber')
+        expect(first.mockVal).toEqual(e.number(1))
+      })
+
+      it('mocks an optional number', () => {
+        expect(second.propName).toEqual('optionalNumber')
+        expect(second.mockVal).toEqual(e.number(1))
+      })
+    })
+  })
 })
