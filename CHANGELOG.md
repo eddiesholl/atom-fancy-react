@@ -1,3 +1,6 @@
+## next
+* Fix: Issue 66 - Use propTypes rules to choose mock data to pass the component tests
+
 ## 0.6.0
 * Fix: Issue 21 - Throws error on package deactivate
 * Fix: Issue 52: Test generation for a default export with a component wrapped in a function
