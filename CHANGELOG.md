@@ -1,5 +1,6 @@
-## next
+## 0.6.2
 * Issue 50 - Show error dialog if something fails during command
+* PR 71 - Don't generate a new component implementation for lower case elements
 
 ## 0.6.1
 * Fix: Issue 66 - Use propTypes rules to choose mock data to pass the component tests
