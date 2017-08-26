@@ -1,3 +1,6 @@
+## next
+* Issue 50 - Show error dialog if something fails during command
+
 ## 0.6.1
 * Fix: Issue 66 - Use propTypes rules to choose mock data to pass the component tests
 * Fix: Issue 64 - Generate tests does not include import statements for all exported functions
