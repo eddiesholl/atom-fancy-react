@@ -74,6 +74,7 @@
     "eslint": "^4.1.1",
     "eslint-plugin-jasmine": "^2.6.2",
     "estree-builder": "^1.10.0",
+    "folktale": "^2.0.1",
     "mkdirp": "^0.5.1",
     "ramda": "^0.24.0",
     "tcomb": "^3.2.22"
