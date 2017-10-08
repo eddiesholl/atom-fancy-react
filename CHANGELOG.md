@@ -1,3 +1,7 @@
+## 0.6.3
+* Fix: Issue 76 - Switch from test to source doesn't work if sourcePath = ""
+* Fix: Issue 74 - Import statement for freshly generated component still hardcoded to 'src/components'
+
 ## 0.6.2
 * Issue 50 - Show error dialog if something fails during command
 * PR 71 - Don't generate a new component implementation for lower case elements
