@@ -5,6 +5,11 @@ describe('removeExtension', () => {
     const result = removeExtension('/a/b.foo')
     expect(result).toEqual('/a/b')
   })
+
+  it('can only trims from the last .', () => {
+    const result = removeExtension('aaa.bbb.ccc')
+    expect(result).toEqual('aaa.bbb')
+  })
 })
 
 describe('trimLeadingFolders', () => {
@@ -24,6 +29,11 @@ describe('trimLeadingFolders', () => {
       const result = trimLeadingFolders(subject, ['a', 'b'])
       expect(result.success).toBe(true)
       expect(result.value).toEqual('/c.js')
+    })
+    it('skips an empty trim request', () => {
+      const result = trimLeadingFolders(subject, ['a', ''])
+      expect(result.success).toBe(true)
+      expect(result.value).toEqual('/b/c.js')
     })
     it('processes 3 trims', () => {
       const result = trimLeadingFolders(subject, ['a', 'b', 'c.js'])
